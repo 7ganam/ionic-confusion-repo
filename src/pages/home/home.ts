@@ -6,12 +6,17 @@ import { Promotion } from '../../shared/promotion';
 import { PromotionProvider } from '../../providers/promotion/promotion';
 import { Leader } from '../../shared/leader';
 import { LeaderProvider } from '../../providers/leader/leader';
+import { IonicPage, NavParams, ToastController } from 'ionic-angular';
+
+// import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
+
+  actionSheet:any;
 
   dish: Dish;
   promotion: Promotion;
@@ -24,7 +29,8 @@ export class HomePage implements OnInit {
     private dishservice: DishProvider,
     private promotionservice: PromotionProvider,
     private leaderservice: LeaderProvider,
-    @Inject('BaseURL') private BaseURL) { }
+    @Inject('BaseURL') private BaseURL,
+    ) { }
 
   ngOnInit() {
     this.dishservice.getFeaturedDish()

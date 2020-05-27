@@ -19,14 +19,19 @@ import { PromotionProvider } from '../providers/promotion/promotion';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 import { HttpModule } from '@angular/http';
 import { baseURL } from '../shared/baseurl';
+import { FavoriteProvider } from '../providers/favorite/favorite';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { ReservationPage } from '../pages/reservation/reservation';
 
 @NgModule({
   declarations: [
     MyApp,
+    FavoritesPage,
     HomePage,
     ListPage,
     AboutPage,
     MenuPage,
+    ReservationPage,
     ContactPage,
     DishdetailPage
   ],
@@ -41,6 +46,8 @@ import { baseURL } from '../shared/baseurl';
     HomePage,
     ListPage,
     AboutPage,
+    ReservationPage,
+    FavoritesPage,
     MenuPage,
     ContactPage,
     DishdetailPage
@@ -53,7 +60,8 @@ import { baseURL } from '../shared/baseurl';
     LeaderProvider,
     PromotionProvider,
     ProcessHttpmsgProvider,
-    { provide: 'BaseURL', useValue: baseURL }
+    { provide: 'BaseURL', useValue: baseURL },
+    FavoriteProvider
 
   ]
 })
