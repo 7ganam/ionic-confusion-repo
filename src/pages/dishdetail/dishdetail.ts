@@ -3,6 +3,10 @@ import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
+import { CommentPage } from '../../pages/comment/comment';
+import {  ModalController } from 'ionic-angular';
+
 /**
  * Generated class for the DishdetailPage page.
  *
@@ -24,7 +28,10 @@ export class DishdetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     @Inject('BaseURL') private BaseURL,
     private favoriteservice: FavoriteProvider,
-    private toastCtrl: ToastController)
+    private toastCtrl: ToastController,
+    public actionSheetCtrl: ActionSheetController,
+    public modalCtrl: ModalController
+    )
      {
         this.dish = navParams.get('dish');
         this.numcomments = this.dish.comments.length;
@@ -42,9 +49,48 @@ export class DishdetailPage {
         position: 'middle',
         duration: 3000}).present();
     }
+
+
   ionViewDidLoad() 
   {
     console.log('ionViewDidLoad DishdetailPage');
+  }
+
+  
+  presentActionSheet()
+ {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Modify your album',
+      buttons: [
+        {
+          text: 'Add to Favorites',
+          handler: () => {
+            this.addToFavorites();
+            }
+        },
+        {
+          text: 'Add a Comment',
+          handler: () => {
+            this.openComment() ;
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
+  }
+ 
+  openComment() {
+    let modal = this.modalCtrl.create(CommentPage);
+    modal.present();
+    modal.onDidDismiss(data => { console.log(data);});
   }
 
 }

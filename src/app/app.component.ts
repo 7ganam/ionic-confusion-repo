@@ -16,7 +16,6 @@ import {  ModalController } from 'ionic-angular';
 
 import { ReservationPage } from '../pages/reservation/reservation';
 
-
 @Component({
   templateUrl: 'app.html'
 })

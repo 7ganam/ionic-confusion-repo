@@ -23,6 +23,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ReservationPage } from '../pages/reservation/reservation';
 
+import { CommentPage } from '../pages/comment/comment';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,6 +33,7 @@ import { ReservationPage } from '../pages/reservation/reservation';
     ListPage,
     AboutPage,
     MenuPage,
+    CommentPage,
     ReservationPage,
     ContactPage,
     DishdetailPage
@@ -46,6 +49,7 @@ import { ReservationPage } from '../pages/reservation/reservation';
     HomePage,
     ListPage,
     AboutPage,
+    CommentPage,
     ReservationPage,
     FavoritesPage,
     MenuPage,

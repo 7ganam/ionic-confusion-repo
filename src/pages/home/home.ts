@@ -42,7 +42,9 @@ export class HomePage implements OnInit {
     this.leaderservice.getFeaturedLeader()
       .subscribe(leader => this.leader = leader,
         errmess => this.leaderErrMess = <any>errmess );
-
   }
+
+
+
 
 }
