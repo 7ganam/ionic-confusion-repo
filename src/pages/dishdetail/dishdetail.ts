@@ -24,6 +24,7 @@ export class DishdetailPage {
   avgstars: string;
   numcomments: number;
   favorite: boolean;
+  new_comment : Comment;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     @Inject('BaseURL') private BaseURL,
@@ -89,8 +90,12 @@ export class DishdetailPage {
  
   openComment() {
     let modal = this.modalCtrl.create(CommentPage);
+    modal.onDidDismiss(data => { console.log(data);
+    this.new_comment = data;
+    this.dish.comments.push(this.new_comment);
+    });
+
     modal.present();
-    modal.onDidDismiss(data => { console.log(data);});
   }
 
 }
