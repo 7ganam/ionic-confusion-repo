@@ -25,6 +25,9 @@ import { ReservationPage } from '../pages/reservation/reservation';
 
 import { CommentPage } from '../pages/comment/comment';
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -65,7 +68,8 @@ import { CommentPage } from '../pages/comment/comment';
     PromotionProvider,
     ProcessHttpmsgProvider,
     { provide: 'BaseURL', useValue: baseURL },
-    FavoriteProvider
+    FavoriteProvider,
+    LocalNotifications
 
   ]
 })

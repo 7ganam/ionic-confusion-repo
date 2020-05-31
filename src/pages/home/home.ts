@@ -9,6 +9,7 @@ import { LeaderProvider } from '../../providers/leader/leader';
 import { IonicPage, NavParams, ToastController } from 'ionic-angular';
 
 // import { ActionSheetController } from '@ionic/angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
   selector: 'page-home',
@@ -30,7 +31,11 @@ export class HomePage implements OnInit {
     private promotionservice: PromotionProvider,
     private leaderservice: LeaderProvider,
     @Inject('BaseURL') private BaseURL,
-    ) { }
+    private localNotifications: LocalNotifications
+    ) 
+    { 
+
+    }
 
   ngOnInit() {
     this.dishservice.getFeaturedDish()
