@@ -1,0 +1,7 @@
+{
+  "name": "conFusion",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
