@@ -28,6 +28,10 @@ import { CommentPage } from '../pages/comment/comment';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { CallNumber } from '@ionic-native/call-number';
+import { Camera } from '@ionic-native/camera';
+import { RegisterPage } from '../pages/register/register';
+import { IonicStorageModule } from '@ionic/storage';
+import { LoginPage } from '../pages/login/login';
 
 
 @NgModule({
@@ -41,12 +45,16 @@ import { CallNumber } from '@ionic-native/call-number';
     CommentPage,
     ReservationPage,
     ContactPage,
-    DishdetailPage
+    DishdetailPage,
+    RegisterPage,
+    LoginPage
   ],
   imports: [
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,7 +67,9 @@ import { CallNumber } from '@ionic-native/call-number';
     FavoritesPage,
     MenuPage,
     ContactPage,
-    DishdetailPage
+    DishdetailPage,
+    RegisterPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -73,7 +83,8 @@ import { CallNumber } from '@ionic-native/call-number';
     FavoriteProvider,
     LocalNotifications,
     EmailComposer,
-    CallNumber
+    CallNumber,
+    Camera
 
   ]
 })
